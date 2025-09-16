@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baromètre d'humeur</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🌈 Baromètre d'humeur des employés</h1>
+
+  <form id="moodForm">
+    <label>👤 Prénom</label>
+    <input type="text" name="name" required>
+
+    <label>😀 Ton humeur</label>
+    <select name="mood" required>
+      <option>😀</option>
+      <option>😐</option>
+      <option>😢</option>
+      <option>😡</option>
+      <option>🤩</option>
+    </select>
+
+    <label>⚡ Energie (1-5)</label>
+    <input type="number" name="energy" min="1" max="5">
+
+    <label>🎨 Couleur du moment</label>
+    <input type="text" name="color" placeholder="💙 💚 ❤️ ...">
+
+    <label>📝 Commentaire</label>
+    <textarea name="comment" placeholder="Ton ressenti..." rows="3"></textarea>
+
+    <label>🌅 / 🌙 Moment de la journée</label>
+    <select name="moment" required>
+      <option value="morning">🌅 Matin</option>
+      <option value="evening">🌙 Soir</option>
+    </select>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div id="responses">
+    <h2>💌 Réponses récentes</h2>
+    <div id="cardsContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
