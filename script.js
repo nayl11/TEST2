@@ -1,4 +1,4 @@
-const API_URL = 'https://68c92fd3ceef5a150f63bcc6.mockapi.io/Humeur';
+const API_URL = 'https://68c92fd3ceef5a150f63bcc6.mockapi.io/Humeur/:endpoint';
 
 const form = document.getElementById('moodForm');
 const cardsContainer = document.getElementById('cardsContainer');
