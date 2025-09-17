@@ -3,7 +3,7 @@ const SUPABASE_URL = 'https://sngzcdoprwvgwpqwmhpb.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNuZ3pjZG9wcnd2Z3dwcXdtaHBiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwOTMzODEsImV4cCI6MjA3MzY2OTM4MX0.lEug6-GEUXVEPO52raaYGJnk35XTyf74teAZXpgs2gQ';
 
 // On renomme la variable pour éviter le conflit
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const client = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const form = document.getElementById('moodForm');
 const cardsContainer = document.getElementById('cardsContainer');
