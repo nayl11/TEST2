@@ -1,16 +1,20 @@
-// Initialiser Supabase
+// Import Supabase depuis CDN
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js';
+
+// Config Supabase
 const SUPABASE_URL = 'https://sngzcdoprwvgwpqwmhpb.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNuZ3pjZG9wcnd2Z3dwcXdtaHBiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwOTMzODEsImV4cCI6MjA3MzY2OTM4MX0.lEug6-GEUXVEPO52raaYGJnk35XTyf74teAZXpgs2gQ';
 
-// On renomme la variable pour éviter le conflit
-const client = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Initialiser le client Supabase
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// Références DOM
 const form = document.getElementById('moodForm');
 const cardsContainer = document.getElementById('cardsContainer');
 
 // Charger les réponses depuis Supabase
 async function loadResponses() {
-  const { data, error } = await client
+  const { data, error } = await supabase
     .from('moods')
     .select('*')
     .order('created_at', { ascending: false });
@@ -40,9 +44,10 @@ form.addEventListener('submit', async (e) => {
 
   const formData = new FormData(form);
   const entry = Object.fromEntries(formData.entries());
+
   if (entry.energy) entry.energy = parseInt(entry.energy);
 
-  const { data, error } = await client
+  const { data, error } = await supabase
     .from('moods')
     .insert([entry]);
 
